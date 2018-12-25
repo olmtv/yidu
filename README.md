@@ -9,15 +9,25 @@
 
 下载本脚本，解压，增加脚本权限。
 
+CentOS6 
+
 wget -c https://raw.githubusercontent.com/olmtv/yidu/master/installbt.sh
 
 chmod +x installbt.sh
 
 ./installbt.sh
 
+CentOS7
+
+wget -c https://raw.githubusercontent.com/olmtv/yidu/master/installbt7.sh
+
+chmod +x installbt7.sh
+
+./installbt7.sh
+
 
 网站路径/www/wwwroot/webapps/
 
 日志路径/www/wwwlogs/yidu/
 
-CentOS7 后续发布
+
