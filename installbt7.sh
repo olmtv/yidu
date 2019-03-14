@@ -8,7 +8,8 @@ unzip master.zip
 \cp  yidu-master/conf/server.xml  YiDuInstaller-Nginx/conf/
 \cp  yidu-master/ROOT/WEB-INF/classes/log4j.properties    YiDuInstaller-Nginx/ROOT/WEB-INF/classes/
 cd YiDuInstaller-Nginx
-wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.rpm
+#wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.rpm
+wget -c http://176.31.117.51/yidu/jdk-8u191-linux-x64.rpm
 rm -rf  spider
 wget -c https://www.51yd.org/spider20181129.zip
 unzip  spider20181129.zip
