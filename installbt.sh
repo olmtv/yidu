@@ -1,22 +1,22 @@
 #!/bin/bash
 
 #原版下载
-wget -c http://www.51yd.org/YiDuInstaller-Nginx-V1.1.9Beta.zip
-unzip  YiDuInstaller-Nginx-V1.1.9Beta.zip
+wget -c http://www.51yd.org/YiDuInstaller-Nginx-V1.2.0Beta.zip
+unzip  YiDuInstaller-Nginx-V1.2.0Beta.zip
 wget -c https://github.com/olmtv/yidu/archive/master.zip
 unzip master.zip
 \cp  yidu-master/conf/server.xml  YiDuInstaller-Nginx/conf/
 \cp  yidu-master/ROOT/WEB-INF/classes/log4j.properties    YiDuInstaller-Nginx/ROOT/WEB-INF/classes/
 cd YiDuInstaller-Nginx
-wget -c http://167.114.210.150/jdk-8u191-linux-x64.rpm
+#wget -c http://167.114.210.150/jdk-8u191-linux-x64.rpm
 rm -rf  spider
 wget -c https://www.51yd.org/spider20181129.zip
 unzip  spider20181129.zip
 
 
 #安装JDK
-chmod +x jdk-8u191-linux-x64.rpm
-rpm -ivh jdk-8u191-linux-x64.rpm
+chmod +x jdk-8u201-linux-x64.rpm
+rpm -ivh jdk-8u201-linux-x64.rpm
 
 
 #安装TOMCAT
