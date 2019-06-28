@@ -5,12 +5,11 @@ wget -c http://www.51yd.org/YiDuInstaller-Nginx-V1.2.0Beta.zip
 unzip  YiDuInstaller-Nginx-V1.2.0Beta.zip
 wget -c https://github.com/olmtv/yidu/archive/master.zip
 unzip master.zip
-\cp  yidu-master/conf/server.xml  YiDuInstaller-Nginx/conf/
-\cp  yidu-master/ROOT/WEB-INF/classes/log4j.properties    YiDuInstaller-Nginx/ROOT/WEB-INF/classes/
-cd YiDuInstaller-Nginx
+\cp  yidu-master/conf/server.xml  YiDuInstaller-Nginx-V1.2.0Beta/YiDuInstaller-Nginx/conf/
+\cp  yidu-master/ROOT/WEB-INF/classes/log4j.properties    YiDuInstaller-Nginx-V1.2.0Beta/YiDuInstaller-Nginx/ROOT/WEB-INF/classes/
+cd YiDuInstaller-Nginx-V1.2.0Beta/YiDuInstaller-Nginx/
 #wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.rpm
 #wget -c http://167.114.210.150/jdk-8u191-linux-x64.rpm
-#升级数据库11.2
 wget -c https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-centos11-11-2.noarch.rpm
 rm -rf  spider
 wget -c https://www.51yd.org/spider20181129.zip
@@ -25,7 +24,7 @@ rpm -ivh jdk-8u201-linux-x64.rpm
 #安装TOMCAT
 tar zxvf apache-tomcat-7.0.55.tar.gz
 mv apache-tomcat-7.0.55 /usr/local/tomcat
-\cp -rpf  conf/server.xml /usr/local/tomcat/conf/   #文件有修改
+\cp -rpf  conf/server.xml /usr/local/tomcat/conf/
 \cp -rpf sh/tomcat.sh /etc/profile.d/tomcat.sh
 \cp -rpf sh/tomcat /etc/rc.d/init.d/tomcat
 chmod +x /etc/rc.d/init.d/tomcat
@@ -49,7 +48,6 @@ yum -y install postgresql11-server
 
 
 #设置开机自动启动
-chkconfig postgresql-11 on
 systemctl enable postgresql-11.service
 
 #启动Postgresql
