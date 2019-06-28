@@ -10,6 +10,8 @@ unzip master.zip
 cd YiDuInstaller-Nginx
 #wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.rpm
 #wget -c http://167.114.210.150/jdk-8u191-linux-x64.rpm
+#升级数据库11.2
+wget -c https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-centos11-11-2.noarch.rpm
 rm -rf  spider
 wget -c https://www.51yd.org/spider20181129.zip
 unzip  spider20181129.zip
@@ -37,18 +39,21 @@ mkdir -p /www/wwwroot/webapps/ROOT/
 mv ROOT/* /www/wwwroot/webapps/ROOT/
 
 #安装数据库
-yum -y install ./pgdg-redhat93-9.3-1.noarch.rpm
-yum -y install postgresql93-server postgresql93-contrib    
-/usr/pgsql-9.3/bin/postgresql93-setup initdb 
+##去掉原有9.3版本数据库安装
+yum -y install ./pgdg-centos11-11-2.noarch.rpm
+yum -y install postgresql11 
+yum -y install postgresql11-server
+/usr/pgsql-11/bin/postgresql-11-setup initdb
 
-\cp -rpf conf/pg_hba.conf /var/lib/pgsql/9.3/data/pg_hba.conf   #需要覆盖命令
+\cp -rpf conf/pg_hba.conf /var/lib/pgsql/11/data/pg_hba.conf   #需要覆盖命令
+
 
 #设置开机自动启动
-systemctl enable postgresql-9.3.service
-
+chkconfig postgresql-11 on
+systemctl enable postgresql-11.service
 
 #启动Postgresql
-systemctl start postgresql-9.3 
+systemctl start postgresql-11.service
 
 #启动tomcat
 systemctl restart  tomcat
@@ -62,5 +67,4 @@ chmod +x /www/spider/start.sh
 chmod +x /www/spider/stop.sh
 chkconfig --add spider
 chkconfig spider on
-
 
