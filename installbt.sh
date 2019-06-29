@@ -5,10 +5,11 @@ wget -c http://www.51yd.org/YiDuInstaller-Nginx-V1.2.0Beta.zip
 unzip  YiDuInstaller-Nginx-V1.2.0Beta.zip
 wget -c https://github.com/olmtv/yidu/archive/master.zip
 unzip master.zip
-\cp  yidu-master/conf/server.xml  YiDuInstaller-Nginx/conf/
-\cp  yidu-master/ROOT/WEB-INF/classes/log4j.properties    YiDuInstaller-Nginx/ROOT/WEB-INF/classes/
-cd YiDuInstaller-Nginx
+\cp  yidu-master/conf/server.xml  YiDuInstaller-Nginx-V1.2.0Beta/YiDuInstaller-Nginx/conf/
+\cp  yidu-master/ROOT/WEB-INF/classes/log4j.properties    YiDuInstaller-Nginx-V1.2.0Beta/YiDuInstaller-Nginx/ROOT/WEB-INF/classes/
+cd YiDuInstaller-Nginx-V1.2.0Beta/YiDuInstaller-Nginx/
 #wget -c http://167.114.210.150/jdk-8u191-linux-x64.rpm
+wget -c https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-centos11-11-2.noarch.rpm
 rm -rf  spider
 wget -c https://www.51yd.org/spider20181129.zip
 unzip  spider20181129.zip
@@ -36,27 +37,19 @@ mkdir -p /www/wwwroot/webapps/ROOT/
 mv ROOT/* /www/wwwroot/webapps/ROOT/
 
 #安装数据库
-yum -y install ./pgdg-redhat93-9.3-1.noarch.rpm
-yum -y install postgresql93-server postgresql93-contrib    
-service postgresql-9.3 initdb
+yum -y install ./pgdg-centos11-11-2.noarch.rpm
+yum -y install postgresql11 
+yum -y install postgresql11-server
+/usr/pgsql-11/bin/postgresql-11-setup initdb
+
 
 
 #设置开机自动启动
-chkconfig postgresql-9.3 on
-\cp -rpf  conf/pg_hba.conf /var/lib/pgsql/9.3/data/pg_hba.conf   #需要覆盖命令
+chkconfig postgresql-11 on
+\cp -rpf  conf/pg_hba.conf /var/lib/pgsql/11/data/pg_hba.conf  #需要覆盖命令
 
 #启动Postgresql
-service postgresql-9.3 start
+service postgresql-11 start
 
 #启动tomcat
 service tomcat start
-
-
-#install spider
-mv spider /www/
-\cp -rpf sh/spider /etc/rc.d/init.d/spider
-chmod +x /etc/rc.d/init.d/spider
-chmod +x /usr/local/spider/start.sh
-chmod +x /usr/local/spider/stop.sh
-chkconfig --add spider
-chkconfig spider on
