@@ -10,7 +10,9 @@ unzip master.zip
 cd YiDuInstaller-Nginx-V1.2.0Beta/YiDuInstaller-Nginx/
 #wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.rpm
 #wget -c http://167.114.210.150/jdk-8u191-linux-x64.rpm
-wget -c https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-centos11-11-2.noarch.rpm
+#wget -c https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-centos11-11-2.noarch.rpm修改下载链接
+wget -c  https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+
 rm -rf  spider
 wget -c https://www.51yd.org/spider20181129.zip
 unzip  spider20181129.zip
