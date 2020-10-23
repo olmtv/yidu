@@ -41,7 +41,7 @@ mv ROOT/* /www/wwwroot/webapps/ROOT/
 
 #安装数据库
 ##去掉原有9.3版本数据库安装
-yum -y install ./pgdg-centos11-11-2.noarch.rpm
+yum -y install ./pgdg-redhat-repo-latest.noarch.rpm
 yum -y install postgresql11 
 yum -y install postgresql11-server
 /usr/pgsql-11/bin/postgresql-11-setup initdb
