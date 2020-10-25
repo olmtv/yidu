@@ -53,3 +53,12 @@ service postgresql-11 start
 
 #启动tomcat
 service tomcat start
+
+#install spider
+mv yispider20200622 /www/spider
+\cp -rpf sh/spider /etc/rc.d/init.d/spider
+chmod +x /etc/rc.d/init.d/spider
+chmod +x /www/spider/start.sh
+chmod +x /www/spider/stop.sh
+chkconfig --add spider
+chkconfig spider on
