@@ -14,8 +14,8 @@ cd YiDuInstaller-Nginx-V1.2.0Beta/YiDuInstaller-Nginx/
 wget -c  https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 
 rm -rf  spider
-wget -c https://www.51yd.org/spider20181129.zip
-unzip  spider20181129.zip
+wget -c https://www.51yd.org/spider20200622.zip
+unzip  spider20200622.zip
 
 
 #安装JDK
