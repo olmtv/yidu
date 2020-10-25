@@ -60,7 +60,7 @@ systemctl restart  tomcat
 
 
 #install spider
-mv yispider20200622 /www/yispider20200622
+mv yispider20200622 /www/spider
 \cp -rpf sh/spider /etc/rc.d/init.d/spider
 chmod +x /etc/rc.d/init.d/spider
 chmod +x /www/spider/start.sh
