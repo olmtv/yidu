@@ -9,11 +9,11 @@ unzip master.zip
 \cp  yidu-master/ROOT/WEB-INF/classes/log4j.properties    YiDuInstaller-Nginx-V1.2.0Beta/YiDuInstaller-Nginx/ROOT/WEB-INF/classes/
 cd YiDuInstaller-Nginx-V1.2.0Beta/YiDuInstaller-Nginx/
 #wget -c http://167.114.210.150/jdk-8u191-linux-x64.rpm
-wget -c https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-centos11-11-2.noarch.rpm
-rm -rf  spider
-wget -c https://www.51yd.org/spider20181129.zip
-unzip  spider20181129.zip
+wget -c  https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 
+rm -rf  spider
+wget -c https://www.51yd.org/spider20200622.zip
+unzip  spider20200622.zip
 
 #安装JDK
 chmod +x jdk-8u201-linux-x64.rpm
@@ -37,7 +37,7 @@ mkdir -p /www/wwwroot/webapps/ROOT/
 mv ROOT/* /www/wwwroot/webapps/ROOT/
 
 #安装数据库
-yum -y install ./pgdg-centos11-11-2.noarch.rpm
+yum -y install ./pgdg-redhat-repo-latest.noarch.rpm
 yum -y install postgresql11 
 yum -y install postgresql11-server
 /usr/pgsql-11/bin/postgresql-11-setup initdb
